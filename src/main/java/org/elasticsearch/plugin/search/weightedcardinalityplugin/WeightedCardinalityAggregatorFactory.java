@@ -66,7 +66,7 @@ public class WeightedCardinalityAggregatorFactory
                     WeightedCardinalityAggregationBuilder.WEIGHT_FIELD.getPreferredName()));
         }
         ValuesSourceConfig<?> config = ValuesSourceConfig.resolve(context.getQueryShardContext(),
-                ValueType.STRING, weightField, null, null, null, null);
+                null, weightField, null, null, null, null);
         ValuesSource weightValuesSource = config.toValuesSource(context.getQueryShardContext());
         return new WeightedCardinalityAggregator(name, valuesSource, weightValuesSource, precision(), context, parent,
                 pipelineAggregators, metaData);

@@ -421,8 +421,9 @@ public class WeightedCardinalityAggregator extends NumericMetricsAggregator.Mult
 
             @Override
             public ArrayList<java.lang.Long> values() throws IOException {
-                ArrayList<java.lang.Long> longValues = new ArrayList<>(values.docValueCount());
-                for (int i = 0; i < longValues.size(); i++) {
+                int valueCount = values.docValueCount();
+                ArrayList<java.lang.Long> longValues = new ArrayList<>(valueCount);
+                for (int i = 0; i < valueCount; i++) {
                     longValues.add(values.nextValue());
                 }
                 return longValues;
@@ -444,8 +445,9 @@ public class WeightedCardinalityAggregator extends NumericMetricsAggregator.Mult
 
             @Override
             public ArrayList<java.lang.Long> values() throws IOException {
-                ArrayList<java.lang.Long> longValues = new ArrayList<>(values.docValueCount());
-                for (int i = 0; i < longValues.size(); i++) {
+                int valueCount = values.docValueCount();
+                ArrayList<java.lang.Long> longValues = new ArrayList<>(valueCount);
+                for (int i = 0; i < valueCount; i++) {
                     final long longValue = (long)values.nextValue();
                     longValues.add(longValue);
                 }
@@ -468,9 +470,9 @@ public class WeightedCardinalityAggregator extends NumericMetricsAggregator.Mult
 
             @Override
             public ArrayList<java.lang.Long> values() throws IOException {
-                int docValueCount = values.docValueCount();
-                ArrayList<java.lang.Long> longValues = new ArrayList<>(docValueCount);
-                for (int i = 0; i < docValueCount; i++) {
+                int valueCount = values.docValueCount();
+                ArrayList<java.lang.Long> longValues = new ArrayList<>(valueCount);
+                for (int i = 0; i < valueCount; i++) {
                     final BytesRef bytes = values.nextValue();
                     longValues.addAll(convert(bytes));
                 }
