@@ -1,0 +1,16 @@
+# intellij files
+.idea/
+*.iml
+*.ipr
+*.iws
+build-idea/
+out/
+
+# gradle stuff
+.gradle/
+build/
+
+# testing stuff
+**/.local*
+.vagrant/
+/logs/

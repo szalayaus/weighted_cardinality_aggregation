@@ -1,0 +1,38 @@
+
+buildscript {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+  }
+
+  dependencies {
+    classpath "org.elasticsearch.gradle:build-tools:6.2.2"
+  }
+}
+
+group = 'org.elasticsearch.plugin.search'
+version = '0.1'
+
+apply plugin: 'java'
+apply plugin: 'elasticsearch.esplugin'
+apply plugin: 'idea'
+
+licenseFile = file('../license.txt')
+noticeFile = file('../license.txt')
+
+esplugin {
+  name 'weighted_cardinality'
+  description 'Calculates the weighted cardinality of distributed lists'
+  classname 'org.elasticsearch.plugin.search.weightedcardinalityplugin.WeightedCardinalityAggregationPlugin'
+
+}
+
+dependencies {
+  testCompile 'org.elasticsearch.test:framework:6.2.2'
+}
+
+
+checkstyleMain.enabled = true
+checkstyleTest.enabled = true
+dependencyLicenses.enabled = false
